@@ -23,23 +23,15 @@ def checkNeighBor(hits,array):
     count =0
     if hits[1]-1>=0:
         # # check left 
-        # left = [hits[0],hits[1]-1]
-        # count += checkNeighBor(left,array)
         count += checkValue(array,hits,[hits[0],hits[1]-1])
     if hits[1]+1 < cols:
         # check right
-        # right = [hits[0],hits[1]+1]
-        # count += checkNeighBor(right,array)
         count +=checkValue(array,hits,[hits[0],hits[1]+1])
     if hits[0]-1 >=0:
         # check up
-        # up = [hits[0]-1,hits[1]]
-        # count += checkNeighBor(up,array)
         count +=checkValue(array,hits,[hits[0]-1,hits[1]])
     if hits[0]+1 < rows:
         # check down
-        # down = [hits[0]+1,hits[1]]
-        # count += checkNeighBor(down,array)
         count +=checkValue(array,hits,[hits[0]+1,hits[1]])  
     return count
 def checkValue(array,hits,check):
@@ -58,12 +50,3 @@ def hashArray(gems):
         HashArray[i[0]*cols+i[1]]=[i[2],0]
     return HashArray
 print(countExplodedGems(rows, cols, gems, hits))
-# array = []
-# for i in range(rows):
-#     array.append([])
-#     for j in range(cols):
-#         array[i].append(0)
-# for i in gems:
-#     array[i[0]][i[1]] = i[2]
-# for i in array:
-#     print(i)

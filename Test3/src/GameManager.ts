@@ -15,6 +15,7 @@ class GameManager {
         //TODO: call your methods of your instances to implement move function and update currentState here.
         let fromFlag = false;
         let toFlag = false;
+        // check this.magicTubes 
         for (let i = 0; i < this.magicTubes.length; i++) {
             if(this.magicTubes[i]==from){
                 fromFlag = true
@@ -24,6 +25,7 @@ class GameManager {
             }
         }
         let temp = 100
+        // check from tube 
         if(fromFlag){
             for(let index =0;index<this.currentState[from].length;index++){
                 if (this.currentState[from][index] != 0){
@@ -41,9 +43,8 @@ class GameManager {
                 }
             }
         }
-        // console.log(toFlag)
+        // Check to tube
         if(toFlag){
-            // this.currentState[to][0] =temp
             for(let index =this.currentState[to].length-1;index>=0;index--){
                 if (this.currentState[to][index] == 0){
                     this.currentState[to][index] =temp
@@ -52,19 +53,12 @@ class GameManager {
             }
         }else{
             for(let index =0;index<this.currentState[to].length;index++){
-                // console.log(this.currentState[to][index])
                 if (this.currentState[to][index] == 0){
                     this.currentState[to][index] = temp
                     break;
                 }
             }
         }
-        // if(this.magicTubes){
-
-        // }
-        // this.currentState[0][0] = 0; 
-
-
         console.log(`MOVE FROM ${from} TO ${to}:`)
         this.printState()
 
